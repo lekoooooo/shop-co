@@ -1,62 +1,99 @@
-import React from 'react'
+import React, { useState } from "react";
+import { products } from "../../data/data";
 
 const TopSelling = () => {
-  return (
-    
-    
-    <div className="mx-auto mt-[32px] px-4 max-w-[390px]">
-      <div className='border-gray-300 border-t-[2px]'></div>
-    <h2 className="mb-6 font-bold text-[32px] text-center">TOP SELLING</h2>
-    
-    <div className="flex gap-4">
-      <div className="flex-1">
-        <div className="bg-[#f2f0f1] mb-2 w-full h-[198px]">
-          <img 
-            src="./shirt.png" 
-            alt="stripedshirt" 
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <h4 className="mb-1 w-[190px] font-medium text-[14px]">Vertical Striped Shirt</h4>
-        <div className="flex items-center gap-1 mb-1">
-          <img src="./5.svg" alt="Rating" className="h-4"/>
-          <span className="text-[12px]">5.0/5</span>
-        </div>
-      
-        <div className="flex items-center gap-2">
-          <p className="font-bold text-[20px]">$212</p>
-          <span className="text-[20px] text-gray-400 line-through">$235</span>
-          <div className="bg-red-100 px-2 py-0.5 rounded-full font-medium text-[12px] text-red-500">
-            -20%
-          </div>
-        </div>
-      </div>
-      
- 
-      <div className="flex-1">
-        <div className="bg-[#f2f0f1] mb-2 w-full h-[198px]">
-          <img 
-            src="./orangetshirt.png" 
-            alt="orange shirt" 
-            className="w-full h-full object-contain"
-          />
-        </div>
-        
-      <h4 className="mb-1 w-[210px] font-medium text-[14px]">Courage Graphic T-shirt</h4>
-        <div className="flex items-center gap-1 mb-1">
-          <img src="./4.svg" alt="Rating" className="h-4"/>
-          <span className="text-[12px]">4.0/5</span>
-        </div>
-       <p className='font-bold text-[20px]'>$145</p>
-        
-      </div>
-    </div>
-    
-    <div className="mt-6 text-center">
-      <button className="font-medium text-[14px] underline">View All</button>
-    </div>
-  </div>
-  )
-}
+  const [showAll, setShowAll] = useState(false);
+  const visibleProducts = showAll ? products : products.slice(0, 4);
 
-export default TopSelling
+  return (
+    <div className="mx-auto mt-[32px] px-4 max-w-[390px] lg:max-w-[1440px]">
+      <div className="border-gray-300 border-t-[2px]"></div>
+      <h2 className="mb-6 font-bold text-[32px] lg:text-[40px] text-center">
+        TOP SELLING
+      </h2>
+
+      <div className="lg:hidden flex gap-4 overflow-x-auto">
+        {products.map((product) => (
+          <div key={products.id} className="flex-shrink-0 w-[180px]">
+            <div className="bg-[#f2f0f1] mb-2 w-full h-[198px]">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <h4 className="mb-1 font-medium text-[14px]">{product.title}</h4>
+            <div className="flex items-center gap-1 mb-1">
+              <img
+                src={`./${product.rating}.svg`}
+                alt="Rating"
+                className="h-4"
+              />
+              <span className="text-[12px]">{product.rating}/5</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <p className="font-bold text-[20px]">{product.price}</p>
+              {product.originalPrice && (
+                <>
+                  <span className="text-[20px] text-gray-400 line-through">
+                    {product.originalPrice}
+                  </span>
+                  <div className="bg-red-100 px-2 py-0.5 rounded-full font-medium text-[12px] text-red-500">
+                    {product.discount}
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="hidden gap-6 lg:grid lg:grid-cols-4">
+        {visibleProducts.map((product) => (
+          <div key={product.id}>
+            <div className="bg-[#f2f0f1] mb-2 w-full h-[320px]">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <h4 className="mb-1 font-medium text-[16px]">{product.title}</h4>
+            <div className="flex items-center gap-1 mb-1">
+              <img
+                src={`./${product.rating}.svg`}
+                alt="Rating"
+                className="h-4"
+              />
+              <span className="text-[14px]">{product.rating}/5</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <p className="font-bold text-[22px]">{product.price}</p>
+              {product.originalPrice && (
+                <>
+                  <span className="text-[22px] text-gray-400 line-through">
+                    {product.originalPrice}
+                  </span>
+                  <div className="bg-red-100 px-2 py-0.5 rounded-full font-medium text-[12px] text-red-500">
+                    {product.discount}
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-6 lg:mt-10 text-center">
+        <button
+          className="hidden lg:flex lg:m-auto lg:px-6 lg:py-2 lg:border lg:border-black lg:rounded-full font-medium text-[14px] lg:text-[16px] underline lg:no-underline cursor-pointer"
+          onClick={() => setShowAll((prev) => !prev)}
+        >
+          {showAll ? "Show Less" : "View All"}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default TopSelling;
