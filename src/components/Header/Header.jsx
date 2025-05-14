@@ -30,7 +30,10 @@ const Header = () => {
               <span className="ml-1 underline cursor-pointer">Sign Up Now</span>
             </p>
           </div>
-          <button onClick={handleBannerClose} className="flex-shrink-0 ml-2">
+          <button
+            onClick={handleBannerClose}
+            className="flex-shrink-0 ml-2 cursor-pointer"
+          >
             <img src="./x.svg" alt="Close banner" className="w-3 h-3" />
           </button>
         </div>

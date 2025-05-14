@@ -60,6 +60,40 @@ export const products = [
     price: "$130",
   },
 ];
+export const brands = [
+  {
+    src: "./versace.svg",
+    alt: "Versace",
+    w: 166,
+    h: 33,
+    mobileScale: 1.8,
+  },
+  { src: "./zara.svg", alt: "Zara", w: 91, h: 38, mobileScale: 1.8 },
+  {
+    src: "./gucci.svg",
+    alt: "Gucci",
+    w: 156,
+    h: 36,
+    mobileScale: 1.8,
+  },
+
+  {
+    src: "./prada.svg",
+    alt: "Prada",
+    w: 194,
+    h: 32,
+    mobileScale: 1.8,
+  },
+
+  { src: "./prada.svg", alt: "prada", w: 91, h: 38, mobileScale: 1.8 },
+  {
+    src: "./versace.svg",
+    alt: "Versace",
+    w: 166,
+    h: 33,
+    mobileScale: 1.8,
+  },
+];
 
 export const testimonials = [
   {

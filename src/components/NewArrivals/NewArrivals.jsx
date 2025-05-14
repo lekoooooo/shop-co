@@ -38,8 +38,8 @@ const NewArrivals = () => {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <div className="mx-auto lg:mt-[150px] px-4 max-w-[390px] lg:max-w-[1440px]">
-      <h2 className="mb-6 lg:mb-10 font-bold text-[32px] lg:text-[40px] text-center">
+    <div className="mx-auto lg:mt-[72px] px-4 max-w-[390px] lg:max-w-[1440px]">
+      <h2 className="mb-6 lg:mb-[50px] font-bold text-[32px] lg:text-[40px] text-center">
         NEW ARRIVALS
       </h2>
 
