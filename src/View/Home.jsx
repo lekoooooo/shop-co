@@ -19,7 +19,6 @@ const Home = () => {
       <HappyCustomers />
       <StayUpDated />
       <Footer />
-      <ProductDetail />
     </div>
   );
 };
