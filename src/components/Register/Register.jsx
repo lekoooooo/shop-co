@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Register() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: "",
+    name: "",
     lastName: "",
     email: "",
     password: "",
@@ -16,11 +16,33 @@ export default function Register() {
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.termsAccepted && formData.email && formData.password) {
-      navigate("/success");
+    if (!formData.termsAccepted || !formData.email || !formData.password)
+      return;
+
+    try {
+      const res = await fetch(
+        "https://6824e1930f0188d7e72b3ad7.mockapi.io/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (res.ok) {
+        const data = await res.json();
+        console.log("Registered:", data);
+        navigate("/success");
+      } else {
+        alert("Failed to register.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
@@ -32,48 +54,49 @@ export default function Register() {
       >
         <h1 className="font-bold text-3xl text-center">Create account</h1>
         <p className="text-sm text-center">
-          Already have an account?{" "}
+          Already have an account?
           <span className="font-semibold text-blue-500">
             <Link to="/login">Login</Link>
           </span>
         </p>
+        <div className="flex flex-col items-center m-auto">
+          <div className="flex lg:flex-row flex-col gap-2">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              className="pl-5 border border-[#04030899] rounded-[5px] w-[162px] h-[50px] text-[#04030866]"
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              className="pl-5 border border-[#04030899] rounded-[5px] w-[262px] h-[50px] text-[#04030866]"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="flex lg:flex-row flex-col gap-2">
           <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            className="pl-5 border border-[#04030899] rounded-[5px] w-[262px] h-[50px] text-[#04030866]"
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="pl-5 border border-[#04030899] rounded-[5px] w-[262px] lg:w-[415px] h-[50px] text-[#04030866]"
             onChange={handleChange}
             required
           />
+
           <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            className="pl-5 border border-[#04030899] rounded-[5px] w-[262px] h-[50px] text-[#04030866]"
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="pl-5 border border-[#04030899] rounded-[5px] w-[262px] lg:w-[415px] h-[50px] text-[#04030866]"
             onChange={handleChange}
             required
           />
         </div>
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="pl-5 border border-[#04030899] rounded-[5px] w-[415px] h-[50px] text-[#04030866]"
-          onChange={handleChange}
-          required
-        />
-
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="pl-5 border border-[#04030899] rounded-[5px] w-[415px] h-[50px] text-[#04030866]"
-          onChange={handleChange}
-          required
-        />
 
         <label className="flex items-center gap-2 text-sm">
           <input type="checkbox" name="termsAccepted" onChange={handleChange} />

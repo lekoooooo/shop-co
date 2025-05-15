@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { products } from "../data/data"; // Your existing product data
+import { products } from "../data/data";
 
 const ProductList = () => {
   return (
@@ -8,7 +8,7 @@ const ProductList = () => {
       <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <Link
-            to={`/products/${product.id}`} // Links to ProductDetail
+            to={`/products/${product.id}`}
             key={product.id}
             className="hover:shadow-md border rounded-lg overflow-hidden transition-shadow"
           >
@@ -20,9 +20,9 @@ const ProductList = () => {
             <div className="p-4">
               <h3 className="font-medium">{product.title}</h3>
               <p className="font-bold text-gray-800">{product.price}</p>
-              {product.oldPrice && (
+              {product.originalPrice && (
                 <p className="text-gray-500 text-sm line-through">
-                  {product.oldPrice}
+                  {product.originalPrice}
                 </p>
               )}
             </div>

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { products } from "../../data/data";
+import { useState } from "react";
+import { products } from "../data/data";
 
-const TopSelling = () => {
+const MightLike = () => {
   const [showAll, setShowAll] = useState(false);
   const visibleProducts = showAll ? products : products.slice(0, 4);
 
   return (
     <div className="mx-auto mt-[32px] px-4 max-w-[390px] lg:max-w-[1440px]">
       <div className="lg:mt-[60px] border-gray-300 border-t-[2px]"></div>
-      <h2 className="lg:mt-[64px] mb-[55px] font-bold text-[32px] lg:text-[40px] text-center">
-        TOP SELLING
+      <h2 className="m-auto lg:mt-[64px] mb-[55px] max-w-[190px] font-bold text-[32px] lg:text-[40px] text-center">
+        You might also like
       </h2>
 
       <div className="lg:hidden flex gap-4 overflow-x-auto">
@@ -96,4 +96,4 @@ const TopSelling = () => {
   );
 };
 
-export default TopSelling;
+export default MightLike;

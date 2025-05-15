@@ -20,10 +20,10 @@ const ProductCard = ({ product }) => (
     </div>
     <div className="flex items-center gap-2">
       <p className="font-bold text-[20px] lg:text-[22px]">{product.price}</p>
-      {product.oldPrice && (
+      {product.originalPrice && (
         <>
           <span className="text-[20px] text-gray-400 line-through">
-            {product.oldPrice}
+            {product.originalPrice}
           </span>
           <div className="bg-red-100 px-2 py-0.5 rounded-full font-medium text-[12px] text-red-500">
             {product.discount}
