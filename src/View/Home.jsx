@@ -6,18 +6,20 @@ import DressStyle from "../components/DressStyle/DressStyle";
 import HappyCustomers from "../components/HappyCustomers/HappyCustomers";
 import StayUpDated from "../components/StayUpDated/StayUpDated";
 import Footer from "../components/Footer/Footer";
+import ProductDetail from "../ProductDetail/ProductDetail";
 
 const Home = () => {
   return (
     <div>
-      <Header />
+      {/* <Header />
       <Hero />
       <NewArrivals />
       <TopSelling />
       <DressStyle />
       <HappyCustomers />
       <StayUpDated />
-      <Footer />
+      <Footer /> */}
+      <ProductDetail />
     </div>
   );
 };

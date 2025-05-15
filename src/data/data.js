@@ -40,10 +40,12 @@ export const products = [
   },
   {
     id: 6,
-    image: "./product6.svg",
-    title: "New Shirt",
-    rating: 4.2,
-    price: "$110",
+    image: "./browntshirt.png",
+    title: "One Life Graphic T-shirt",
+    rating: 4.5,
+    price: "$260",
+    oldPrice: "$300",
+    discount: "-40%",
   },
   {
     id: 7,
