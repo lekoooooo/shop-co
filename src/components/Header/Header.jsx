@@ -73,12 +73,12 @@ const Header = () => {
                 {desktopSubmenuOpen && (
                   <ul className="top-full left-0 z-10 absolute space-y-2 bg-white shadow-md mt-2 px-4 py-2 rounded-md w-[180px]">
                     <li>
-                      <Link to="/products" className="block hover:underline">
+                      <Link to="" className="block hover:underline">
                         All Products
                       </Link>
                     </li>
                     <li>
-                      <Link to="/newArrivals" className="block hover:underline">
+                      <Link to="/NewArrivals" className="block hover:underline">
                         New Arrivals
                       </Link>
                     </li>
@@ -97,7 +97,7 @@ const Header = () => {
               <Link to="/sale" className="hover:underline">
                 On Sale
               </Link>
-              <Link to="/newArrivals" className="hover:underline">
+              <Link to="/newArrivals" className="block hover:underline">
                 New Arrivals
               </Link>
               <Link to="/brands" className="hover:underline">
@@ -181,7 +181,7 @@ const Header = () => {
                   <ul className="space-y-3 mt-2 pl-6 text-gray-600">
                     <li>
                       <Link
-                        to="/products"
+                        to="/product"
                         className="block py-1 text-base"
                         onClick={toggleMenu}
                       >
@@ -190,7 +190,7 @@ const Header = () => {
                     </li>
                     <li>
                       <Link
-                        to="/new-arrivals"
+                        to="/NewArrivals"
                         className="block py-1 text-base"
                         onClick={toggleMenu}
                       >

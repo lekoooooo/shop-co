@@ -1,14 +1,23 @@
+import browncircle from "/browncircle.svg";
+import greencircle from "/green.svg";
+import purplecircle from "/purple.svg";
+
+const colors = [
+  { name: "brown", image: browncircle },
+  { name: "green", image: greencircle },
+  { name: "purple", image: purplecircle },
+];
 export const products = [
   {
     id: 1,
-    image: "./blacktee.png",
+    image: "/blacktee.png",
     title: "T-shirt with Tape Details",
     rating: 4.5,
     price: "$120",
   },
   {
     id: 2,
-    image: "./skinnyjeans.svg",
+    image: "/skinnyjeans.svg",
     title: "Skinny Fit Jeans",
     rating: 3.5,
     price: "$240",
@@ -17,14 +26,14 @@ export const products = [
   },
   {
     id: 3,
-    image: "./klechati.svg",
+    image: "/klechati.svg",
     title: "Checkered Shirt",
     rating: 4.5,
     price: "$180",
   },
   {
     id: 4,
-    image: "./baseballtee.svg",
+    image: "/baseballtee.svg",
     title: "Sleeve Striped T-Shirt",
     rating: 4.5,
     price: "$130",
@@ -33,14 +42,14 @@ export const products = [
   },
   {
     id: 5,
-    image: "./orangetshirt.png",
+    image: "/orangetshirt.png",
     title: "COURAGE GRAPHIC T-SHIRT",
     rating: 4,
     price: "$130",
   },
   {
     id: 6,
-    image: "./browntshirt.png",
+    image: "/browntshirt.png",
     title: "One Life Graphic T-shirt",
     rating: 4.5,
     price: "$260",
@@ -49,7 +58,7 @@ export const products = [
   },
   {
     id: 7,
-    image: "./polo.png",
+    image: "/polo.png",
     title: "Polo with Contrast Trims",
     rating: 4.0,
     price: "$212",
@@ -58,7 +67,7 @@ export const products = [
   },
   {
     id: 8,
-    image: "./graphic.png",
+    image: "/graphic.png",
     title: "Gradient Graphic T-shirt",
     rating: 3.5,
     price: "$145",
@@ -122,7 +131,7 @@ export const testimonials = [
     rating: "./4.svg",
     title: "4 stars",
     name: "simon L.",
-    text: "good fashion.",
+    text: "good fashion. would buy and recommend 100%, it is a way to the fashion",
   },
   {
     rating: "./3.5.svg",
