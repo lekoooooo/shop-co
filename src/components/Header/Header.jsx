@@ -21,9 +21,9 @@ const Header = () => {
   };
 
   return (
-    <div className="relative m-auto max-w-[390px] lg:max-w-full">
+    <div className="relative m-auto max-w-[391px] lg:max-w-full">
       {showBanner && (
-        <div className="flex justify-between items-center bg-black px-4 lg:px-8 h-[34px] text-[12px] text-white text-center">
+        <div className="flex justify-between items-center bg-black px-4 lg:px-8 max-w-[391px] lg:max-w-[1920px] h-[34px] text-[12px] text-white text-center">
           <div className="flex-1 text-center">
             <p className="inline">
               Sign up and get 20% off to your first order.
@@ -39,7 +39,7 @@ const Header = () => {
             onClick={handleBannerClose}
             className="flex-shrink-0 ml-2 cursor-pointer"
           >
-            <img src="./x.svg" alt="Close banner" className="w-3 h-3" />
+            <img src="/x.svg" alt="Close banner" className="w-3 h-3" />
           </button>
         </div>
       )}
@@ -48,7 +48,7 @@ const Header = () => {
         <div className="flex justify-between items-center px-[16px] lg:px-8 py-[10px] lg:py-4 border-b">
           <div className="flex items-center gap-[54px] lg:gap-12 lg:ml-[100px]">
             <button className="lg:hidden" onClick={toggleMenu}>
-              <img src="./burger.svg" alt="Menu" className="w-6 h-6" />
+              <img src="/burger.svg" alt="Menu" className="w-6 h-6" />
             </button>
 
             <Link to="/" className="font-bold text-[25px]">
@@ -63,7 +63,7 @@ const Header = () => {
                 >
                   Shop
                   <img
-                    src="./arrowD.svg"
+                    src="/arrowD.svg"
                     className={`w-4 h-4 mt-[2px] transition-transform ${
                       desktopSubmenuOpen ? "rotate-180" : ""
                     }`}
@@ -108,7 +108,7 @@ const Header = () => {
 
           <div className="hidden lg:flex flex-1 mx-12 max-w-[600px]">
             <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full w-full">
-              <img src="./search.svg" className="mr-2 w-5 h-5" alt="Search" />
+              <img src="/search.svg" className="mr-2 w-5 h-5" alt="Search" />
               <input
                 type="text"
                 placeholder="Search for products..."
@@ -119,10 +119,10 @@ const Header = () => {
 
           <div className="flex items-center gap-4 lg:gap-6">
             <Link to="/cart" className="cursor-pointer">
-              <img src="./cart.svg" alt="Cart" className="w-6 h-6" />
+              <img src="/cart.svg" alt="Cart" className="w-6 h-6" />
             </Link>
             <Link to="/profile" className="cursor-pointer">
-              <img src="./profile.svg" alt="Profile" className="w-6 h-6" />
+              <img src="/profile.svg" alt="Profile" className="w-6 h-6" />
             </Link>
           </div>
         </div>
@@ -135,7 +135,7 @@ const Header = () => {
       >
         <div className="flex justify-end p-4">
           <button onClick={toggleMenu} className="p-2">
-            <img src="./Close.svg" alt="Close" className="w-6 h-6" />
+            <img src="/Close.svg" alt="Close" className="w-6 h-6" />
           </button>
         </div>
 
@@ -169,7 +169,7 @@ const Header = () => {
                     className="p-1 transition-transform"
                   >
                     <img
-                      src="./arrowD.svg"
+                      src="/arrowD.svg"
                       alt="Toggle"
                       className={`w-5 h-5 transform ${
                         openSubmenu === "shop" ? "rotate-180" : ""

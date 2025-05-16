@@ -25,7 +25,7 @@ const NewArrivals = ({ products }) => {
             </h4>
             <div className="flex items-center gap-1 mb-1">
               <img
-                src={`./${product.rating}.svg`}
+                src={`/${product.rating}.svg`}
                 alt="Rating"
                 className="h-4"
               />

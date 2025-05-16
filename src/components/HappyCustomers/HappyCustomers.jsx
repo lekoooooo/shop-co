@@ -22,10 +22,10 @@ const HappyCustomers = () => {
           <h2 className="font-bold text-[32px]">OUR HAPPY CUSTOMERS</h2>
           <div className="flex gap-2 ml-auto">
             <button onClick={prevSlide}>
-              <img src="./lef.svg" alt="Previous" className="w-6 h-6" />
+              <img src="/lef.svg" alt="Previous" className="w-6 h-6" />
             </button>
             <button onClick={nextSlide}>
-              <img src="./rite.svg" alt="Next" className="w-6 h-6" />
+              <img src="/rite.svg" alt="Next" className="w-6 h-6" />
             </button>
           </div>
         </div>
@@ -44,7 +44,7 @@ const HappyCustomers = () => {
                 <div className="flex gap-2 mb-4">
                   <h3 className="font-bold">{item.name}</h3>
                   <span className="text-gray-400 text-xl">
-                    <img src="./mark.svg" alt="checkmark" />
+                    <img src="/mark.svg" alt="checkmark" />
                   </span>
                 </div>
                 <p className="text-gray-600 text-sm text-left">{item.text}</p>
@@ -60,7 +60,7 @@ const HappyCustomers = () => {
             <div className="flex gap-2 mb-4">
               <h3 className="font-bold">{testimonials[currentSlide].name}</h3>
               <span className="text-gray-400 text-xl">
-                <img src="./mark.svg" alt="checkmark" />
+                <img src="/mark.svg" alt="checkmark" />
               </span>
             </div>
             <p className="text-gray-600 text-sm text-center">
