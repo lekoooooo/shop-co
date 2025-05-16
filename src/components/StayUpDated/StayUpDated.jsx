@@ -8,7 +8,7 @@ const StayUpDated = () => {
 
         <form className="flex flex-col items-center gap-3">
           <div className="flex items-center bg-white px-4 py-2 rounded-full w-full lg:w-[349px]">
-            <img src="./mail.svg" alt="email icon" className="mr-2 w-4 h-4" />
+            <img src="/mail.svg" alt="email icon" className="mr-2 w-4 h-4" />
             <input
               type="email"
               placeholder="Enter your email address"

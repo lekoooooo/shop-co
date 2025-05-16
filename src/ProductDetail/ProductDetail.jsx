@@ -1,6 +1,6 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { products, testimonials } from "../data/data";
+import { products, reviewPage } from "../data/data";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import StayUpDated from "../components/StayUpDated/StayUpDated";
@@ -48,20 +48,16 @@ const ProductDetail = () => {
   };
 
   const getVisibleReviews = () => {
-    const visibleReviews = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentReviewIndex + i) % testimonials.length;
-      visibleReviews.push(testimonials[index]);
-    }
-    return visibleReviews;
+    const index = currentReviewIndex % reviewPage.length;
+    return [reviewPage[index]];
   };
 
   const navigateReviews = (direction) => {
     if (direction === "next") {
-      setCurrentReviewIndex((prev) => (prev + 1) % testimonials.length);
+      setCurrentReviewIndex((prev) => (prev + 1) % reviewPage.length);
     } else {
       setCurrentReviewIndex(
-        (prev) => (prev - 1 + testimonials.length) % testimonials.length
+        (prev) => (prev - 1 + reviewPage.length) % reviewPage.length
       );
     }
   };
@@ -120,8 +116,8 @@ const ProductDetail = () => {
 
             <div className="flex items-center gap-1 mb-4">
               <img
-                src={`/star-${product.rating}.svg`}
-                alt="Rating"
+                src={`/${product.rating}.svg`}
+                alt={`${product.rating} stars`}
                 className="h-4"
               />
               <span className="text-sm">{product.rating}/5</span>
@@ -222,7 +218,7 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        <div className="mt-8 border-gray-200 border-t">
+        <div className="lg:flex lg:flex-col lg:justify-between lg:m-auto mt-8 border-gray-200 border-t">
           <div className="flex border-gray-200 border-b">
             <button
               onClick={() => setActiveTab("details")}
@@ -273,43 +269,38 @@ const ProductDetail = () => {
               <div>
                 <h4 className="mb-6 font-bold text-xl">Customer Reviews</h4>
                 <div className="flex items-center gap-2 mb-6">
-                  <img src="/star-4.5.svg" alt="4.5 stars" className="h-6" />
-                  <span className="text-lg">4.5 out of 5</span>
-                  <span className="ml-2 text-gray-500">
-                    ({testimonials.length} reviews)
-                  </span>
+                  {reviewPage.length} Reviews Total
                 </div>
 
-                <div className="relative">
+                <div className="relative flex justify-center">
                   <button
                     onClick={() => navigateReviews("prev")}
-                    className="top-1/2 left-0 absolute bg-white shadow-md -ml-4 p-2 rounded-full -translate-y-1/2 transform"
+                    className="top-1/2 left-0 absolute bg-white shadow-md p-2 rounded-full -translate-y-1/2"
                   >
                     <img src="/lef.svg" alt="Previous" className="w-4 h-4" />
                   </button>
 
-                  <div className="gap-6 grid grid-cols-1 md:grid-cols-3 px-6">
-                    {getVisibleReviews().map((review, index) => (
-                      <div
-                        key={index}
-                        className="p-4 border border-gray-200 rounded-lg"
-                      >
-                        <div className="flex items-center gap-2 mb-2">
-                          <img
-                            src={review.rating.replace("./", "/")}
-                            alt={review.title}
-                            className="h-4"
-                          />
-                          <span className="font-medium">{review.name}</span>
-                        </div>
-                        <p className="text-gray-600">{review.text}</p>
+                  {getVisibleReviews().map((review, index) => (
+                    <div
+                      key={index}
+                      className="p-4 border border-gray-200 rounded-lg w-full max-w-md text-center"
+                    >
+                      <div className="flex flex-col items-center gap-1 mb-2">
+                        <img
+                          src={review.rating}
+                          alt={review.title}
+                          className="h-5"
+                        />
+                        <span className="font-medium">{review.name}</span>
+                        <p className="text-gray-400 text-xs">{review.date}</p>
                       </div>
-                    ))}
-                  </div>
+                      <p className="text-gray-600">{review.text}</p>
+                    </div>
+                  ))}
 
                   <button
                     onClick={() => navigateReviews("next")}
-                    className="top-1/2 right-0 absolute bg-white shadow-md -mr-4 p-2 rounded-full -translate-y-1/2 transform"
+                    className="top-1/2 right-0 absolute bg-white shadow-md p-2 rounded-full -translate-y-1/2"
                   >
                     <img src="/rite.svg" alt="Next" className="w-4 h-4" />
                   </button>
@@ -333,6 +324,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+
       <MightLike />
       <StayUpDated />
       <Footer />

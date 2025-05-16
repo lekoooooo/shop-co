@@ -1,127 +1,99 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useAuth } from "../../AuthContext/AuthContext";
 
-export default function Register() {
-  const navigate = useNavigate();
+const Register = () => {
+  const { login } = useAuth();
+
   const [formData, setFormData] = useState({
     name: "",
-    lastName: "",
     email: "",
     password: "",
-    termsAccepted: false,
   });
 
+  const [error, setError] = useState(null);
+
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    setError(null);
 
-    if (!formData.termsAccepted || !formData.email || !formData.password)
+    if (!formData.name || !formData.email || !formData.password) {
+      setError("All fields are required.");
       return;
-
-    try {
-      const res = await fetch(
-        "https://6824e1930f0188d7e72b3ad7.mockapi.io/users",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (res.ok) {
-        const data = await res.json();
-        console.log("Registered:", data);
-        navigate("/success");
-      } else {
-        alert("Failed to register.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
     }
+
+    setTimeout(() => {
+      login({
+        name: formData.name,
+        email: formData.email,
+      });
+
+      alert("Registered and logged in successfully!");
+    }, 500);
   };
 
   return (
-    <div className="flex justify-center items-center bg-gray-50 px-4 min-h-screen">
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4 bg-white shadow-md p-6 rounded-lg w-full max-w-md"
-      >
-        <h1 className="font-bold text-3xl text-center">Create account</h1>
-        <p className="text-sm text-center">
-          Already have an account?
-          <span className="font-semibold text-blue-500">
-            <Link to="/login">Login</Link>
-          </span>
-        </p>
-        <div className="flex flex-col items-center m-auto">
-          <div className="flex lg:flex-row flex-col gap-2">
-            <input
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              className="pl-5 border border-[#04030899] rounded-[5px] w-[162px] h-[50px] text-[#04030866]"
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              className="pl-5 border border-[#04030899] rounded-[5px] w-[262px] h-[50px] text-[#04030866]"
-              onChange={handleChange}
-              required
-            />
-          </div>
-
+    <div className="mx-auto p-4 max-w-md register-form">
+      <h2 className="mb-4 font-bold text-2xl">Register</h2>
+      {error && <p className="mb-3 text-red-500">{error}</p>}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="name" className="block mb-1 font-medium">
+            Name
+          </label>
           <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="pl-5 border border-[#04030899] rounded-[5px] w-[262px] lg:w-[415px] h-[50px] text-[#04030866]"
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
             onChange={handleChange}
-            required
-          />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            className="pl-5 border border-[#04030899] rounded-[5px] w-[262px] lg:w-[415px] h-[50px] text-[#04030866]"
-            onChange={handleChange}
-            required
+            className="px-3 py-2 border rounded w-full"
+            placeholder="Your name"
           />
         </div>
-
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" name="termsAccepted" onChange={handleChange} />
-          I agree to DopeSass Terms of service and Privacy policy
-        </label>
-
+        <div>
+          <label htmlFor="email" className="block mb-1 font-medium">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="px-3 py-2 border rounded w-full"
+            placeholder="you@example.com"
+          />
+        </div>
+        <div>
+          <label htmlFor="password" className="block mb-1 font-medium">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="px-3 py-2 border rounded w-full"
+            placeholder="Password"
+          />
+        </div>
         <button
           type="submit"
-          className="bg-black hover:bg-gray-900 py-2 rounded w-full text-white"
+          className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white transition"
         >
-          Create Account
-        </button>
-
-        <div className="border-[#04030866] text-gray-400 text-center">or</div>
-
-        <button className="flex justify-center items-center gap-2 py-2 border w-full">
-          <img src="./Google.png" className="w-5 h-5" alt="Google Pay" />
-          Continue with Google
-        </button>
-
-        <button className="flex justify-center items-center gap-2 py-2 border w-full">
-          <img src="./Apple.png" className="w-5 h-5" alt="Apple pay" />
-          Continue with Apple
+          Register
         </button>
       </form>
     </div>
   );
-}
+};
+
+export default Register;

@@ -15,16 +15,16 @@ const Footer = () => {
 
       <div className="flex gap-4 mb-8">
         <button className="cursor-pointer">
-          <img src="./twitter.svg" alt="Twitter" />
+          <img src="/twitter.svg" alt="Twitter" />
         </button>
         <button className="cursor-pointer">
-          <img src="./fb.svg" alt="Facebook" />
+          <img src="/fb.svg" alt="Facebook" />
         </button>
         <button className="cursor-pointer">
-          <img src="./ig.svg" alt="Instagram" />
+          <img src="/ig.svg" alt="Instagram" />
         </button>
         <button className="cursor-pointer">
-          <img src="./git.svg" alt="GitHub" />
+          <img src="/git.svg" alt="GitHub" />
         </button>
       </div>
 
@@ -123,11 +123,11 @@ const Footer = () => {
           Shop.co @ 2000-2023, All Rights Reserved
         </p>
         <div className="flex justify-center gap-[5px]">
-          <img src="./visa.svg" alt="Visa" />
-          <img src="./mastercard.svg" alt="Mastercard" />
-          <img src="./paypal.svg" alt="PayPal" />
-          <img src="./Apay.svg" alt="Apple Pay" />
-          <img src="./Gpay.svg" alt="Google Pay" />
+          <img src="/visa.svg" alt="Visa" />
+          <img src="/mastercard.svg" alt="Mastercard" />
+          <img src="/paypal.svg" alt="PayPal" />
+          <img src="/Apay.svg" alt="Apple Pay" />
+          <img src="/Gpay.svg" alt="Google Pay" />
         </div>
       </div>
     </footer>

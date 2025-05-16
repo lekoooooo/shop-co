@@ -8,7 +8,7 @@ const MightLike = () => {
   return (
     <div className="mx-auto mt-[32px] px-4 max-w-[390px] lg:max-w-[1440px]">
       <div className="lg:mt-[60px] border-gray-300 border-t-[2px]"></div>
-      <h2 className="m-auto lg:mt-[64px] mb-[55px] max-w-[190px] font-bold text-[32px] lg:text-[40px] text-center">
+      <h2 className="m-auto lg:mt-[64px] mb-[55px] max-w-[190px] lg:max-w-[400px] font-bold text-[32px] lg:text-[40px] text-center">
         You might also like
       </h2>
 
@@ -25,7 +25,7 @@ const MightLike = () => {
             <h4 className="mb-1 font-medium text-[14px]">{product.title}</h4>
             <div className="flex items-center gap-1 mb-1">
               <img
-                src={`./${product.rating}.svg`}
+                src={`/${product.rating}.svg`}
                 alt="Rating"
                 className="h-4"
               />

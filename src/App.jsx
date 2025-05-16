@@ -4,6 +4,7 @@ import ProductDetail from "./ProductDetail/ProductDetail";
 import Register from "./components/Register/Register";
 import LogIn from "./Login/Login";
 import SignupSuccess from "./components/Register/Success";
+import "./global.css";
 
 const router = createBrowserRouter([
   {

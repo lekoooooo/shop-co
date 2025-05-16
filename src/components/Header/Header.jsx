@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../AuthContext/AuthContext";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
   const [desktopSubmenuOpen, setDesktopSubmenuOpen] = useState(false);
   const [showBanner, setShowBanner] = useState(true);
+
+  const { authUser, logout } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,6 +20,11 @@ const Header = () => {
 
   const handleBannerClose = () => {
     setShowBanner(false);
+  };
+
+  const showProfileDetails = () => {
+    if (!authUser) return;
+    alert(`Name: ${authUser.name}\nEmail: ${authUser.email}`);
   };
 
   return (
@@ -34,7 +41,6 @@ const Header = () => {
               </Link>
             </p>
           </div>
-
           <button
             onClick={handleBannerClose}
             className="flex-shrink-0 ml-2 cursor-pointer"
@@ -70,10 +76,35 @@ const Header = () => {
                   />
                 </button>
 
+                {authUser ? (
+                  <div
+                    className="flex items-center gap-2 cursor-pointer profile"
+                    onClick={showProfileDetails}
+                    title="View Profile Details"
+                  >
+                    <img src="/profile.svg" alt="Profile" className="w-6 h-6" />
+                    <span>{authUser.name}</span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        logout();
+                      }}
+                      className="bg-red-500 ml-2 px-2 py-1 rounded text-white text-sm"
+                      title="Logout"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <Link to="/login">
+                    <p className="cursor-pointer">Log in</p>
+                  </Link>
+                )}
+
                 {desktopSubmenuOpen && (
                   <ul className="top-full left-0 z-10 absolute space-y-2 bg-white shadow-md mt-2 px-4 py-2 rounded-md w-[180px]">
                     <li>
-                      <Link to="" className="block hover:underline">
+                      <Link to="/product" className="block hover:underline">
                         All Products
                       </Link>
                     </li>
@@ -83,10 +114,7 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/best-sellers"
-                        className="block hover:underline"
-                      >
+                      <Link to="/bestSellers" className="block hover:underline">
                         Best Sellers
                       </Link>
                     </li>

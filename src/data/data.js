@@ -140,9 +140,40 @@ export const testimonials = [
     text: "WHO MADE THIS SITE",
   },
   {
-    rating: "/5.svg",
+    rating: "./5.svg",
     title: "5 stars",
     name: "Carmelo A.",
     text: "too bad ive never won a ring, but i gave my all .",
+  },
+];
+
+export const reviewPage = [
+  {
+    rating: "./4.5.svg",
+    title: "4.5 stars",
+    name: "Samantha D..",
+    text: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt.",
+    date: "Posted on August 14, 2023",
+  },
+  {
+    rating: "./4.svg",
+    title: "4 stars",
+    name: "Alex M..",
+    text: "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, Im quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+    date: "Posted on August 15, 2023",
+  },
+  {
+    rating: "./4.5.svg",
+    title: "5 stars",
+    name: "Carmelo A.",
+    text: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt.",
+    date: "Posted on August 14, 2023",
+  },
+  {
+    rating: "./3.5.svg",
+    title: "3.5 stars",
+    name: "Ethan R.",
+    text: "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+    date: "Posted on August 16, 2023",
   },
 ];
