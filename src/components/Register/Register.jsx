@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+
 import { useAuth } from "../../AuthContext/AuthContext";
 
 const Register = () => {
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -34,64 +37,87 @@ const Register = () => {
         email: formData.email,
       });
 
-      alert("Registered and logged in successfully!");
+      alert("Registered successfully!");
+      navigate("/login");
     }, 500);
   };
 
   return (
-    <div className="mx-auto p-4 max-w-md register-form">
-      <h2 className="mb-4 font-bold text-2xl">Register</h2>
-      {error && <p className="mb-3 text-red-500">{error}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block mb-1 font-medium">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="px-3 py-2 border rounded w-full"
-            placeholder="Your name"
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block mb-1 font-medium">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="px-3 py-2 border rounded w-full"
-            placeholder="you@example.com"
-          />
-        </div>
-        <div>
-          <label htmlFor="password" className="block mb-1 font-medium">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="px-3 py-2 border rounded w-full"
-            placeholder="Password"
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white transition"
-        >
-          Register
-        </button>
-      </form>
+    <div className="flex justify-center items-center bg-gray-100 min-h-screen">
+      <div className="bg-white shadow-md p-8 rounded w-full max-w-md">
+        <h2 className="mb-6 font-bold text-2xl text-center">Register</h2>
+
+        {error && (
+          <div className="mb-4 text-red-600 text-sm text-center">{error}</div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block mb-1 font-medium text-sm">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block mb-1 font-medium text-sm">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="password"
+              className="block mb-1 font-medium text-sm"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full"
+              placeholder="Enter password"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-600 py-2 rounded w-full font-semibold text-white transition"
+          >
+            Register
+          </button>
+        </form>
+
+        <p className="mt-4 text-gray-600 text-sm text-center">
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            className="font-medium text-blue-500 hover:underline"
+          >
+            Log in
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

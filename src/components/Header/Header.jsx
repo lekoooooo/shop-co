@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../AuthContext/AuthContext";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -76,31 +77,6 @@ const Header = () => {
                   />
                 </button>
 
-                {authUser ? (
-                  <div
-                    className="flex items-center gap-2 cursor-pointer profile"
-                    onClick={showProfileDetails}
-                    title="View Profile Details"
-                  >
-                    <img src="/profile.svg" alt="Profile" className="w-6 h-6" />
-                    <span>{authUser.name}</span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        logout();
-                      }}
-                      className="bg-red-500 ml-2 px-2 py-1 rounded text-white text-sm"
-                      title="Logout"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                ) : (
-                  <Link to="/login">
-                    <p className="cursor-pointer">Log in</p>
-                  </Link>
-                )}
-
                 {desktopSubmenuOpen && (
                   <ul className="top-full left-0 z-10 absolute space-y-2 bg-white shadow-md mt-2 px-4 py-2 rounded-md w-[180px]">
                     <li>
@@ -150,12 +126,36 @@ const Header = () => {
               <img src="/cart.svg" alt="Cart" className="w-6 h-6" />
             </Link>
             <Link to="/profile" className="cursor-pointer">
-              <img src="/profile.svg" alt="Profile" className="w-6 h-6" />
+              {authUser ? (
+                <div
+                  className="flex items-center gap-2 cursor-pointer profile"
+                  onClick={showProfileDetails}
+                  title="View Profile Details"
+                >
+                  <img src="/profile.svg" alt="Profile" className="w-6 h-6" />
+                  <span>{authUser.name}</span>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      logout();
+                    }}
+                    className="bg-red-500 ml-2 px-2 py-1 rounded text-white text-sm"
+                    title="Logout"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link to="/login">
+                  <p className="cursor-pointer">Log in</p>
+                </Link>
+              )}
             </Link>
           </div>
         </div>
       </header>
 
+      {/* Mobile menu */}
       <div
         className={`lg:hidden z-50 fixed top-0 left-0 h-full w-full max-w-[390px] bg-white overflow-y-auto transition-transform duration-300 transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"

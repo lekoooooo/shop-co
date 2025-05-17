@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
-import { AuthContext } from "@ryanar/react-auth-provider";
+import { useAuth } from "../AuthContext/AuthContext";
 
 export default function LogIn() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ export default function LogIn() {
     password: "",
   });
   const [error, setError] = useState("");
-  const { login } = useContext(AuthContext);
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
