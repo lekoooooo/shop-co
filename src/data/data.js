@@ -151,7 +151,7 @@ export const reviewPage = [
   {
     rating: "./public/4.5.svg",
     title: "4.5 stars",
-    name: "Samantha D..",
+    name: "Samantha D.",
     text: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt.",
     date: "Posted on August 14, 2023",
   },

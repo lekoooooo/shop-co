@@ -1,57 +1,36 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-
-import { useAuth } from "../../AuthContext/AuthContext";
-
+import { Link } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerUser } from "../../api/api";
+import { registerSchema } from "../../schema/schema";
 const Register = () => {
-  const { login } = useAuth();
-  const navigate = useNavigate();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(registerSchema),
   });
-
-  const [error, setError] = useState(null);
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  const onSubmit = (data) => {
+    mutate(data);
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError(null);
-
-    if (!formData.name || !formData.email || !formData.password) {
-      setError("All fields are required.");
-      return;
-    }
-
-    setTimeout(() => {
-      login({
-        name: formData.name,
-        email: formData.email,
-      });
-
-      alert("Registered successfully!");
-      navigate("/login");
-    }, 500);
-  };
-
+  const { mutate } = useMutation({
+    mutationFn: registerUser,
+    onSuccess: () => {
+      alert("create account");
+    },
+    onError: () => {
+      setError("root", { message: "something is wrong" });
+    },
+  });
   return (
     <div className="flex justify-center items-center bg-gray-100 min-h-screen">
       <div className="bg-white shadow-md p-8 rounded w-full max-w-md">
         <h2 className="mb-6 font-bold text-2xl text-center">Register</h2>
 
-        {error && (
-          <div className="mb-4 text-red-600 text-sm text-center">{error}</div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label htmlFor="name" className="block mb-1 font-medium text-sm">
               Name
@@ -60,10 +39,9 @@ const Register = () => {
               type="text"
               name="name"
               id="name"
-              value={formData.name}
-              onChange={handleChange}
               className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full"
               placeholder="Your name"
+              {...register("name")}
             />
           </div>
 
@@ -75,10 +53,9 @@ const Register = () => {
               type="email"
               name="email"
               id="email"
-              value={formData.email}
-              onChange={handleChange}
               className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full"
               placeholder="you@example.com"
+              {...register("email")}
             />
           </div>
 
@@ -93,10 +70,9 @@ const Register = () => {
               type="password"
               name="password"
               id="password"
-              value={formData.password}
-              onChange={handleChange}
               className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full"
               placeholder="Enter password"
+              {...register("password")}
             />
           </div>
 
