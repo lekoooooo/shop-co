@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { products } from "../../data/data";
 import { Link } from "react-router-dom";
 

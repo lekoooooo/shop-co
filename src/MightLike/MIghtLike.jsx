@@ -29,11 +29,7 @@ const MightLike = () => {
             </div>
             <h4 className="mb-1 font-medium text-[14px]">{product.title}</h4>
             <div className="flex items-center gap-1 mb-1">
-              <img
-                src={getRatingStars(product.rating)}
-                alt={`Rating: ${product.rating}`}
-                className="h-4"
-              />
+              <img src={product.rating} alt={product.rating} className="h-4" />
               <span className="text-[12px]">{product.rating}/5</span>
             </div>
             <div className="flex items-center gap-2">

@@ -246,7 +246,7 @@ const ProductDetail = () => {
             </button>
           </div>
 
-          <div className="py-6">
+          <div className="py-6 font-[satoshi]">
             {activeTab === "details" && (
               <div className="space-y-2">
                 <h4 className="mb-4 font-bold">Product Information</h4>
@@ -262,9 +262,11 @@ const ProductDetail = () => {
             {activeTab === "reviews" && (
               <div className="relative">
                 <div className="flex justify-between items-center mb-6">
-                  <h4 className="font-bold text-xl">Customer Reviews</h4>
-                  <div className="flex items-center gap-4">
-                    <span>{reviewPage.length} Reviews Total</span>
+                  <h4 className="font-[satoshi] font-bold text-xl">
+                    All Reviews
+                  </h4>
+                  <div className="flex items-center gap-2 font-[satoshi]">
+                    <span>({reviewPage.length}) Customer Reviews</span>
                     <div className="flex gap-2">
                       <button
                         onClick={scrollPrev}
@@ -313,8 +315,10 @@ const ProductDetail = () => {
             )}
 
             {activeTab === "faqs" && (
-              <div className="space-y-6">
-                <h4 className="mb-4 font-bold">Frequently Asked Questions</h4>
+              <div className="space-y-6 font-[satoshi]">
+                <h4 className="mb-4 font-bolder underline">
+                  FREQUENTLY ASKED QUESTIONS :{" "}
+                </h4>
                 <div>
                   <p className="font-medium">What's the return policy?</p>
                   <p className="mt-1 text-gray-600">30 days free returns.</p>
