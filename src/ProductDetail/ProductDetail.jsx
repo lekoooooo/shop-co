@@ -63,7 +63,7 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="font-sans">
+    <div className="font-fontspring">
       <Header />
 
       <div className="mx-auto px-4 py-6 max-w-6xl">
@@ -112,7 +112,7 @@ const ProductDetail = () => {
           </div>
 
           <div className="md:w-1/2">
-            <h1 className="mb-2 font-bold text-2xl">{product.title}</h1>
+            <h2 className="mb-2 font-bold text-2xl">{product.title}</h2>
 
             <div className="flex items-center gap-1 mb-4">
               <img
@@ -283,18 +283,18 @@ const ProductDetail = () => {
                   {getVisibleReviews().map((review, index) => (
                     <div
                       key={index}
-                      className="p-4 border border-gray-200 rounded-lg w-full max-w-md text-center"
+                      className="p-4 border border-gray-200 rounded-lg w-full max-w-md"
                     >
-                      <div className="flex flex-col items-center gap-1 mb-2">
+                      <div className="flex flex-col gap-1 mb-2">
                         <img
                           src={review.rating}
                           alt={review.title}
                           className="h-5"
                         />
                         <span className="font-medium">{review.name}</span>
-                        <p className="text-gray-400 text-xs">{review.date}</p>
+                        <p className="text-gray-600">{review.text}</p>
                       </div>
-                      <p className="text-gray-600">{review.text}</p>
+                      <p className="text-gray-400 text-xs">{review.date}</p>
                     </div>
                   ))}
 

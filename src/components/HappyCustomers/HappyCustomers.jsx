@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { testimonials } from "../../data/data";
-
 const HappyCustomers = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const cardsPerPage = 3;
@@ -19,7 +18,9 @@ const HappyCustomers = () => {
     <div className="lg:flex lg:justify-center mx-auto mt-[100px] lg:mt-[80px] px-4 max-w-screen-xl">
       <div className="w-full max-w-[358px] lg:max-w-full">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="font-bold text-[32px]">OUR HAPPY CUSTOMERS</h2>
+          <h2 className="font-[fontspring] font-bold text-[32px]">
+            OUR HAPPY CUSTOMERS
+          </h2>
           <div className="flex gap-2 ml-auto">
             <button onClick={prevSlide}>
               <img src="/lef.svg" alt="Previous" className="w-6 h-6" />
@@ -30,7 +31,7 @@ const HappyCustomers = () => {
           </div>
         </div>
 
-        <div className="hidden lg:flex justify-center gap-4">
+        <div className="hidden lg:flex justify-center gap-4 font-[satoshi]">
           {testimonials
             .slice(currentSlide, currentSlide + cardsPerPage)
             .map((item, index) => (

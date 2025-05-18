@@ -25,7 +25,8 @@ const Header = () => {
 
   const showProfileDetails = () => {
     if (!authUser) return;
-    alert(`Name: ${authUser.name}\nEmail: ${authUser.email}`);
+    alert(`Name: ${authUser.name}`);
+    alert(`Email: ${authUser.email}`);
   };
 
   return (
@@ -33,10 +34,10 @@ const Header = () => {
       {showBanner && (
         <div className="flex justify-between items-center bg-black px-4 lg:px-8 max-w-[391px] lg:max-w-[1920px] h-[34px] text-[12px] text-white text-center">
           <div className="flex-1 text-center">
-            <p className="inline">
+            <p className="inline font-[satoshi]">
               Sign up and get 20% off to your first order.
               <Link to="/register">
-                <button className="ml-1 underline cursor-pointer">
+                <button className="ml-1 font-[satoshi] underline cursor-pointer">
                   Sign Up Now
                 </button>
               </Link>
@@ -78,7 +79,7 @@ const Header = () => {
                 </button>
 
                 {desktopSubmenuOpen && (
-                  <ul className="top-full left-0 z-10 absolute space-y-2 bg-white shadow-md mt-2 px-4 py-2 rounded-md w-[180px]">
+                  <ul className="top-full left-0 z-10 absolute space-y-2 bg-white shadow-md mt-2 px-4 py-2 rounded-md w-[180px] font-[satoshi]">
                     <li>
                       <Link to="/product" className="block hover:underline">
                         All Products
@@ -98,20 +99,23 @@ const Header = () => {
                 )}
               </div>
 
-              <Link to="/sale" className="hover:underline">
+              <Link to="/sale" className="font-[satoshi] hover:underline">
                 On Sale
               </Link>
-              <Link to="/newArrivals" className="block hover:underline">
+              <Link
+                to="/newArrivals"
+                className="block font-[satoshi] hover:underline"
+              >
                 New Arrivals
               </Link>
-              <Link to="/brands" className="hover:underline">
+              <Link to="/brands" className="font-[satoshi] hover:underline">
                 Brands
               </Link>
             </nav>
           </div>
 
           <div className="hidden lg:flex flex-1 mx-12 max-w-[600px]">
-            <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full w-full">
+            <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full w-full font-[satoshi]">
               <img src="/search.svg" className="mr-2 w-5 h-5" alt="Search" />
               <input
                 type="text"
@@ -132,14 +136,16 @@ const Header = () => {
                   onClick={showProfileDetails}
                   title="View Profile Details"
                 >
-                  <img src="/profile.svg" alt="Profile" className="w-6 h-6" />
-                  <span>{authUser.name}</span>
+                  <Link to="/profile" className="flex items-center gap-2">
+                    <img src="/profile.svg" alt="Profile" className="w-6 h-6" />
+                    <span>{authUser.name}</span>
+                  </Link>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       logout();
                     }}
-                    className="bg-red-500 ml-2 px-2 py-1 rounded text-white text-sm"
+                    className="bg-red-500 ml-2 px-2 py-1 rounded font-[satoshi] text-white text-sm"
                     title="Logout"
                   >
                     Logout
@@ -147,7 +153,7 @@ const Header = () => {
                 </div>
               ) : (
                 <Link to="/login">
-                  <p className="cursor-pointer">Log in</p>
+                  <img src="/profile.svg" alt="profile" />
                 </Link>
               )}
             </Link>
@@ -155,7 +161,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile menu */}
       <div
         className={`lg:hidden z-50 fixed top-0 left-0 h-full w-full max-w-[390px] bg-white overflow-y-auto transition-transform duration-300 transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"

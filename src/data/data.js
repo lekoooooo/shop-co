@@ -1,11 +1,28 @@
 import browncircle from "/browncircle.svg";
 import greencircle from "/green.svg";
 import purplecircle from "/purple.svg";
+import blackcircle from "/blackcircle.svg";
+import whitecircle from "/whitecircle.svg";
+import pinkcircle from "/pinkcircle.svg";
+import bluecircle from "/bluecircle.svg";
+import cyancircle from "/cyancircle.svg";
+import orangecircle from "/orangecircle.svg";
+import yellowcircle from "/yellowcircle.svg";
 
-const colors = [
+import redcircle from "/redcircle.svg";
+
+export const colors = [
   { name: "brown", image: browncircle },
   { name: "green", image: greencircle },
   { name: "purple", image: purplecircle },
+  { name: "black", image: blackcircle },
+  { name: "white", image: whitecircle },
+  { name: "pink", image: pinkcircle },
+  { name: "blue", image: bluecircle },
+  { name: "cyan", image: cyancircle },
+  { name: "orange", image: orangecircle },
+  { name: "yellow", image: yellowcircle },
+  { name: "red", image: redcircle },
 ];
 export const products = [
   {
@@ -140,7 +157,7 @@ export const testimonials = [
     text: "WHO MADE THIS SITE",
   },
   {
-    rating: "./5.svg",
+    rating: "/5.svg",
     title: "5 stars",
     name: "Carmelo A.",
     text: "too bad ive never won a ring, but i gave my all .",
@@ -149,31 +166,110 @@ export const testimonials = [
 
 export const reviewPage = [
   {
-    rating: "./public/4.5.svg",
+    rating: "/4.5.svg",
     title: "4.5 stars",
     name: "Samantha D.",
     text: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt.",
     date: "Posted on August 14, 2023",
   },
   {
-    rating: "./public/4.svg",
+    rating: "/4.svg",
     title: "4 stars",
     name: "Alex M..",
     text: "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, Im quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
     date: "Posted on August 15, 2023",
   },
   {
-    rating: "./public/4.5.svg",
+    rating: "/4.5.svg",
     title: "5 stars",
     name: "Carmelo A.",
     text: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt.",
     date: "Posted on August 14, 2023",
   },
   {
-    rating: "./3.5.svg",
+    rating: "/3.5.svg",
     title: "3.5 stars",
     name: "Ethan R.",
     text: "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
     date: "Posted on August 16, 2023",
+  },
+];
+export const casualCloth = [
+  {
+    id: 1,
+    image: "/graphic.png",
+    title: "Gradient Graphic T-shirt",
+    rating: "/3.5.svg",
+    price: "$145",
+    originalPrice: "$242",
+    discount: "-20%",
+  },
+
+  {
+    id: 2,
+    image: "/pinkpolo.png",
+    title: "Polo with Tipping  De...",
+    rating: "/4.5.svg",
+    price: "$180",
+    originalPrice: "$242",
+    discount: "-20%",
+  },
+
+  {
+    id: 3,
+    image: "/blackstripe.png",
+    title: "Black Striped T-shirt",
+    rating: "/4.svg",
+    price: "$120",
+    originalPrice: "$150",
+    discount: "-30%",
+  },
+  {
+    id: 4,
+    image: "/skinnyjeans.svg",
+    title: "Skinny Fit Jeans",
+    rating: "/3.5.svg",
+    price: "$240",
+    originalPrice: "$260",
+    discount: "-20%",
+  },
+  {
+    id: 5,
+    image: "/klechati.svg",
+    title: "Checkered Shirt",
+    rating: "/4.5.svg",
+    price: "$180",
+  },
+  {
+    id: 6,
+    image: "/orangetshirt.png",
+    title: "Sleeve Striped T-shirt",
+    rating: "/4.5.svg",
+    price: "$130",
+    originalPrice: "$160",
+    discount: "-20%",
+  },
+  {
+    id: 7,
+    image: "/greenshirt.png",
+    title: "Vertical Striped Shirt",
+    rating: "/5.svg",
+    price: "$212",
+    originalPrice: "$232",
+    discount: "-30%",
+  },
+  {
+    id: 8,
+    image: "/courageshirt.png",
+    title: "Courage Graphic T-shirt",
+    rating: "/4.svg",
+    price: "$145",
+  },
+  {
+    id: 9,
+    image: "/shorts.png",
+    title: "Loose Fit Bermuda Shorts",
+    rating: "/3.5.svg",
+    price: "$80",
   },
 ];

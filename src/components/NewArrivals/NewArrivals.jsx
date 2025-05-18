@@ -5,8 +5,10 @@ const NewArrivals = ({ products }) => {
 
   return (
     <section className="mx-auto px-4 py-8 max-w-6xl">
-      <h2 className="mb-4 font-bold text-xl">New Arrivals</h2>
-      <div className="flex gap-4 lg:grid lg:grid-cols-4 overflow-x-auto">
+      <h2 className="lg:flex lg:justify-center mb-4 font-[fontspring] lg:text-[48px]">
+        New Arrivals
+      </h2>
+      <div className="flex gap-4 lg:grid lg:grid-cols-4 overflow-x-auto font-[satoshi]">
         {products.map((product) => (
           <Link
             key={product.id}

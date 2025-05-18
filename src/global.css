@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-
-
 @layer utilities {
   @keyframes scroll {
     0% {

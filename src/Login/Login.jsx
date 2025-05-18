@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerUser } from "../api/api";
 import { registerSchema } from "../schema/schema";
+import Header from "../components/Header/Header";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,7 +34,7 @@ const Login = () => {
   });
 
   return (
-    <div className="flex justify-center items-center bg-gray-50 px-4 min-h-screen">
+    <div className="flex lg:flex lg:justify-center items-center bg-gray-50 px-4 min-h-screen">
       <div className="bg-white shadow-md p-6 rounded-lg w-full max-w-md">
         <h2 className="mb-1 font-bold text-2xl">Welcome Back</h2>
         <p className="mb-6 text-sm">
