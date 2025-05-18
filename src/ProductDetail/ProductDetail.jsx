@@ -2,19 +2,28 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { products, reviewPage } from "../data/data";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import StayUpDated from "../components/StayUpDated/StayUpDated";
 import MightLike from "../MightLike/MIghtLike";
+import useEmblaCarousel from "embla-carousel-react";
 
 const ProductDetail = () => {
   const { productId } = useParams();
   const product = products.find((p) => p.id === Number(productId));
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("details");
-  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   if (!product) {
     return <div>Product not found</div>;
@@ -45,21 +54,6 @@ const ProductDetail = () => {
 
   const decreaseQuantity = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
-  };
-
-  const getVisibleReviews = () => {
-    const index = currentReviewIndex % reviewPage.length;
-    return [reviewPage[index]];
-  };
-
-  const navigateReviews = (direction) => {
-    if (direction === "next") {
-      setCurrentReviewIndex((prev) => (prev + 1) % reviewPage.length);
-    } else {
-      setCurrentReviewIndex(
-        (prev) => (prev - 1 + reviewPage.length) % reviewPage.length
-      );
-    }
   };
 
   return (
@@ -266,44 +260,54 @@ const ProductDetail = () => {
             )}
 
             {activeTab === "reviews" && (
-              <div>
-                <h4 className="mb-6 font-bold text-xl">Customer Reviews</h4>
-                <div className="flex items-center gap-2 mb-6">
-                  {reviewPage.length} Reviews Total
+              <div className="relative">
+                <div className="flex justify-between items-center mb-6">
+                  <h4 className="font-bold text-xl">Customer Reviews</h4>
+                  <div className="flex items-center gap-4">
+                    <span>{reviewPage.length} Reviews Total</span>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={scrollPrev}
+                        className="bg-white shadow-md p-2 rounded-full"
+                      >
+                        <img
+                          src="/lef.svg"
+                          alt="Previous"
+                          className="w-4 h-4"
+                        />
+                      </button>
+                      <button
+                        onClick={scrollNext}
+                        className="bg-white shadow-md p-2 rounded-full"
+                      >
+                        <img src="/rite.svg" alt="Next" className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="relative flex justify-center">
-                  <button
-                    onClick={() => navigateReviews("prev")}
-                    className="top-1/2 left-0 absolute bg-white shadow-md p-2 rounded-full -translate-y-1/2"
-                  >
-                    <img src="/lef.svg" alt="Previous" className="w-4 h-4" />
-                  </button>
-
-                  {getVisibleReviews().map((review, index) => (
-                    <div
-                      key={index}
-                      className="p-4 border border-gray-200 rounded-lg w-full max-w-md"
-                    >
-                      <div className="flex flex-col gap-1 mb-2">
-                        <img
-                          src={review.rating}
-                          alt={review.title}
-                          className="h-5"
-                        />
-                        <span className="font-medium">{review.name}</span>
-                        <p className="text-gray-600">{review.text}</p>
+                <div className="overflow-hidden embla" ref={emblaRef}>
+                  <div className="flex">
+                    {reviewPage.map((review, index) => (
+                      <div
+                        key={index}
+                        className="flex-shrink-0 px-4 max-w-[358px] max-h-[240px]"
+                      >
+                        <div className="p-2 border border-gray-200 rounded-lg w-full max-w-md">
+                          <div className="flex flex-col gap-1 mb-2">
+                            <img
+                              src={review.rating}
+                              alt={review.title}
+                              className="h-5"
+                            />
+                            <span className="font-medium">{review.name}</span>
+                            <p className="text-gray-600">{review.text}</p>
+                          </div>
+                          <p className="text-gray-400 text-xs">{review.date}</p>
+                        </div>
                       </div>
-                      <p className="text-gray-400 text-xs">{review.date}</p>
-                    </div>
-                  ))}
-
-                  <button
-                    onClick={() => navigateReviews("next")}
-                    className="top-1/2 right-0 absolute bg-white shadow-md p-2 rounded-full -translate-y-1/2"
-                  >
-                    <img src="/rite.svg" alt="Next" className="w-4 h-4" />
-                  </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}

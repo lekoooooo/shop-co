@@ -5,6 +5,11 @@ const MightLike = () => {
   const [showAll, setShowAll] = useState(false);
   const visibleProducts = showAll ? products : products.slice(0, 4);
 
+  const getRatingStars = (rating) => {
+    const roundedRating = Math.round(Number(rating) * 2) / 2;
+    return `/stars-${roundedRating}.svg`;
+  };
+
   return (
     <div className="mx-auto mt-[32px] px-4 max-w-[390px] lg:max-w-[1440px] font-[satoshi]">
       <div className="lg:mt-[60px] border-gray-300 border-t-[2px]"></div>
@@ -25,8 +30,8 @@ const MightLike = () => {
             <h4 className="mb-1 font-medium text-[14px]">{product.title}</h4>
             <div className="flex items-center gap-1 mb-1">
               <img
-                src={`/${product.rating}.svg`}
-                alt="Rating"
+                src={getRatingStars(product.rating)}
+                alt={`Rating: ${product.rating}`}
                 className="h-4"
               />
               <span className="text-[12px]">{product.rating}/5</span>
@@ -61,8 +66,8 @@ const MightLike = () => {
             <h4 className="mb-1 font-medium text-[16px]">{product.title}</h4>
             <div className="flex items-center gap-1 mb-1">
               <img
-                src={`./${product.rating}.svg`}
-                alt="Rating"
+                src={getRatingStars(product.rating)}
+                alt={product.rating}
                 className="h-4"
               />
               <span className="text-[14px]">{product.rating}/5</span>

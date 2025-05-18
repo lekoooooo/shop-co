@@ -53,14 +53,14 @@ const Header = () => {
       )}
 
       <header>
-        <div className="flex justify-between items-center px-[16px] lg:px-8 py-[10px] lg:py-4 border-b">
+        <div className="flex justify-between items-center px-[16px] lg:px-8 py-[10px] lg:py-4">
           <div className="flex items-center gap-[54px] lg:gap-12 lg:ml-[100px]">
             <button className="lg:hidden" onClick={toggleMenu}>
               <img src="/burger.svg" alt="Menu" className="w-6 h-6" />
             </button>
 
             <Link to="/" className="font-bold text-[25px]">
-              SHOP.CO
+              <img src="/SHOP.CO.svg" alt="SHOP.CO" />
             </Link>
 
             <nav className="hidden relative lg:flex items-center gap-8 text-[16px] text-black">

@@ -3,9 +3,6 @@ import { products } from "../../data/data";
 import { Link } from "react-router-dom";
 
 const TopSelling = () => {
-  const [showAll, setShowAll] = useState(false);
-  const visibleProducts = showAll ? products : products.slice(0, 4);
-
   return (
     <div className="mx-auto mt-[32px] px-4 max-w-[390px] lg:max-w-[1440px]">
       <div className="lg:mt-[60px] border-gray-300 border-t-[2px]"></div>
@@ -53,7 +50,7 @@ const TopSelling = () => {
       </div>
 
       <div className="hidden gap-6 lg:grid lg:grid-cols-4 font-[satoshi]">
-        {visibleProducts.map((product) => (
+        {products.map((product) => (
           <div key={product.id}>
             <div className="bg-[#f2f0f1] mb-2 w-full h-[320px]">
               <img
@@ -89,12 +86,11 @@ const TopSelling = () => {
       </div>
 
       <div className="mt-6 lg:mt-10 text-center">
-        <button
-          className="hidden lg:flex lg:m-auto lg:px-6 lg:py-2 lg:border lg:border-black lg:rounded-full font-[satoshi] font-medium text-[14px] lg:text-[16px] underline lg:no-underline cursor-pointer"
-          onClick={() => setShowAll((prev) => !prev)}
-        >
-          {showAll ? "Show Less" : "View All"}
-        </button>
+        <Link to="/casual">
+          <button className="hidden lg:flex lg:m-auto lg:px-6 lg:py-2 lg:border lg:border-black lg:rounded-full font-[satoshi] font-medium text-[14px] lg:text-[16px] underline lg:no-underline cursor-pointer">
+            View All
+          </button>
+        </Link>
       </div>
     </div>
   );

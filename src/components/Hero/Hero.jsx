@@ -3,7 +3,7 @@ import Brands from "../Brands/Brands";
 const Hero = () => {
   return (
     <div>
-      <div className="flex lg:flex-row flex-col items-center bg-[#f2f0f1] m-auto px-4 lg:px-20 lg:py-20 w-full max-w-[390px] lg:max-w-[1920px]">
+      <div className="flex lg:flex-row flex-col items-center bg-[#f2f0f1] m-auto px-4 lg:px-20 w-full max-w-[390px] lg:max-w-[1920px]">
         <div className="lg:mr-16 w-full max-w-[358px] lg:max-w-[540px]">
           <h2 className="mb-4 max-w-[330px] lg:max-w-[450px] font-[fontspring] font-bold text-[36px] lg:text-[48px]">
             FIND CLOTHES THAT MATCHES YOUR STYLE
