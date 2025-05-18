@@ -67,7 +67,7 @@ const ProductDetail = () => {
       <Header />
 
       <div className="mx-auto px-4 py-6 max-w-6xl">
-        <div className="flex items-center mb-6 text-gray-600 text-sm">
+        <div className="flex items-center mb-6 font-[satoshi] text-gray-600 text-sm">
           <p className="hover:text-gray-900">Home</p>
           <img src="/smallarrow.svg" alt=">" className="mx-2 w-2 h-2" />
           <p className="hover:text-gray-900">Shop</p>
@@ -77,9 +77,9 @@ const ProductDetail = () => {
           <p className="font-medium text-gray-900">T-Shirts</p>
         </div>
 
-        <div className="flex md:flex-row flex-col gap-8">
+        <div className="flex md:flex-row flex-col gap-8 font-[satoshi]">
           <div className="md:w-1/2">
-            <div className="flex justify-center items-center bg-gray-100 mb-4 p-8 rounded-lg">
+            <div className="flex justify-center items-center bg-gray-100 mb-4 p-8 rounded-lg font-[fontspring]">
               <img
                 src={product.image}
                 alt={product.title}

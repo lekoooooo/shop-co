@@ -44,7 +44,7 @@ const MotionSlider = ({ reverse = false, gap = "gap-9", isMobile = false }) => (
 
 const Brands = () => {
   return (
-    <div className="relative flex items-center bg-black w-full h-[146px] lg:h-[122px] overflow-hidden">
+    <div className="relative flex items-center bg-black lg:mx-auto w-full lg:max-w-[1920px] h-[146px] lg:h-[122px] overflow-hidden">
       <div className="hidden lg:flex w-full h-full">
         <MotionSlider gap="gap-[106px]" />
       </div>

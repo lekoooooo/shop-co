@@ -193,6 +193,27 @@ export const reviewPage = [
     text: "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
     date: "Posted on August 16, 2023",
   },
+  {
+    rating: "/4.svg",
+    title: "4 stars",
+    name: "Sophia L.",
+    text: "Absolutely love this t-shirt! The quality is outstanding, and the design is so unique. I've received so many compliments already.",
+    date: "Posted on April 12, 2024",
+  },
+  {
+    rating: "/5.svg",
+    title: "5 stars",
+    name: "Michael B.",
+    text: "Perfect fit and very comfortable. The minimalist design goes well with everything in my wardrobe. Highly recommend!",
+    date: "Posted on March 30, 2024",
+  },
+  {
+    rating: "/4.svg",
+    title: "4 stars",
+    name: "Ava K.",
+    text: "Good shirt overall but wished the fabric was a bit softer. Still, the style is great and worth the price.",
+    date: "Posted on May 5, 2024",
+  },
 ];
 export const casualCloth = [
   {

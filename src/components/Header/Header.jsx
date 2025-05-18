@@ -30,11 +30,11 @@ const Header = () => {
   };
 
   return (
-    <div className="relative m-auto max-w-[391px] lg:max-w-full">
+    <div className="relative mx-auto max-w-[391px] lg:max-w-[1920px]">
       {showBanner && (
         <div className="flex justify-between items-center bg-black px-4 lg:px-8 max-w-[391px] lg:max-w-[1920px] h-[34px] text-[12px] text-white text-center">
           <div className="flex-1 text-center">
-            <p className="inline font-[satoshi]">
+            <p className="inline mx-auto font-[satoshi]">
               Sign up and get 20% off to your first order.
               <Link to="/register">
                 <button className="ml-1 font-[satoshi] underline cursor-pointer">
@@ -126,10 +126,13 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-4 lg:gap-6">
-            <Link to="/cart" className="cursor-pointer">
-              <img src="/cart.svg" alt="Cart" className="w-6 h-6" />
-            </Link>
-            <Link to="/profile" className="cursor-pointer">
+            <div>
+              {" "}
+              <Link to="/cart" className="cursor-pointer">
+                <img src="/cart.svg" alt="Cart" className="w-6 h-6" />
+              </Link>
+            </div>
+            <div>
               {authUser ? (
                 <div
                   className="flex items-center gap-2 cursor-pointer profile"
@@ -152,11 +155,13 @@ const Header = () => {
                   </button>
                 </div>
               ) : (
-                <Link to="/login">
-                  <img src="/profile.svg" alt="profile" />
-                </Link>
+                <div>
+                  <Link to="/login">
+                    <img src="/profile.svg" alt="profile" />
+                  </Link>
+                </div>
               )}
-            </Link>
+            </div>
           </div>
         </div>
       </header>

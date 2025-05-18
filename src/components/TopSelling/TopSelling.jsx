@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { products } from "../../data/data";
+import { Link } from "react-router-dom";
 
 const TopSelling = () => {
   const [showAll, setShowAll] = useState(false);
@@ -14,7 +15,7 @@ const TopSelling = () => {
 
       <div className="lg:hidden flex gap-4 overflow-x-auto">
         {products.map((product) => (
-          <div
+          <Link
             key={product.id}
             className="flex-shrink-0 w-[180px] font-[satoshi]"
           >
@@ -47,7 +48,7 @@ const TopSelling = () => {
                 </>
               )}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

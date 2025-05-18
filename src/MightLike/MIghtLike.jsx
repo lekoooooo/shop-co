@@ -6,9 +6,9 @@ const MightLike = () => {
   const visibleProducts = showAll ? products : products.slice(0, 4);
 
   return (
-    <div className="mx-auto mt-[32px] px-4 max-w-[390px] lg:max-w-[1440px]">
+    <div className="mx-auto mt-[32px] px-4 max-w-[390px] lg:max-w-[1440px] font-[satoshi]">
       <div className="lg:mt-[60px] border-gray-300 border-t-[2px]"></div>
-      <h2 className="m-auto lg:mt-[64px] mb-[55px] max-w-[190px] lg:max-w-[400px] font-bold text-[32px] lg:text-[40px] text-center">
+      <h2 className="m-auto lg:mt-[64px] mb-[55px] max-w-[190px] lg:max-w-[550px] font-[fontspring] font-bold text-[32px] lg:text-[40px] text-center">
         You might also like
       </h2>
 

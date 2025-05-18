@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerUser } from "../api/api";
 import { registerSchema } from "../schema/schema";
-import Header from "../components/Header/Header";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +37,7 @@ const Login = () => {
       <div className="bg-white shadow-md p-6 rounded-lg w-full max-w-md">
         <h2 className="mb-1 font-bold text-2xl">Welcome Back</h2>
         <p className="mb-6 text-sm">
-          Don't have an account?{" "}
+          Don't have an account?
           <Link
             to="/register"
             className="font-medium text-blue-600 hover:underline"

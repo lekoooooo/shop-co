@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const DressStyle = () => {
   return (
     <div className="lg:flex lg:flex-col bg-[#F0F0F0] m-auto mt-[30px] lg:mt-[60px] lg:px-16 pb-[27px] lg:pb-[50px] rounded-[20px] lg:rounded-[40px] max-w-[358px] lg:max-w-[1440px]">
-      <h2 className="lg:col-span-2 m-auto lg:mt-[70px] mb-6 lg:mb-[60px] max-w-[200px] lg:max-w-[1000px] font-[fontspring] font-bold text-[32px] text-center">
+      <h2 className="lg:col-span-2 m-auto lg:mt-[70px] mb-6 lg:mb-[60px] max-w-[250px] lg:max-w-[1000px] font-[fontspring] font-bold text-[32px] text-center">
         BROWSE BY DRESS STYLE
       </h2>
 

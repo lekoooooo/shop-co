@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header/Header";
 import { colors } from "../data/data";
+import StayUpDated from "../components/StayUpDated/StayUpDated";
+import Footer from "../components/Footer/Footer";
 
 const Casual = ({ casualClothes }) => {
   const [showFilters, setShowFilters] = useState(false);
@@ -241,11 +243,11 @@ const Casual = ({ casualClothes }) => {
             </div>
           </div>
 
-          <div className="flex-1">
+          <div className="flex-1 font-[satoshi]">
             <div className="lg:hidden flex justify-between items-center">
               <div className="flex flex-col">
                 <h2 className="font-semibold text-[22px]">Casual</h2>
-                <p className="text-[#666] text-[14px]">
+                <p className="font-[satoshi] text-[#666] text-[14px]">
                   Showing 1-8 of {casualClothes.length} Products
                 </p>
               </div>
@@ -280,7 +282,11 @@ const Casual = ({ casualClothes }) => {
                       {item.title}
                     </h3>
                     <div className="flex items-center gap-1 mt-1 text-sm">
-                      <img src={item.rating} alt="Rating" className="" />
+                      <img
+                        src={item.rating}
+                        alt="Rating"
+                        className="w-[80px] h-[16px]"
+                      />
                       <span className="font-medium text-[13px]">
                         {item.rating.replace("/", "").replace(".svg", "")}/
                         <span className="text-[#999]">5</span>
@@ -323,7 +329,11 @@ const Casual = ({ casualClothes }) => {
                       {item.title}
                     </h3>
                     <div className="flex items-center gap-1 mt-1 text-sm">
-                      <img src={item.rating} alt="Rating" className="w-4 h-4" />
+                      <img
+                        src={item.rating}
+                        alt="Rating"
+                        className="w-[80px] h-[16px]"
+                      />
                       <span className="font-medium text-[13px]">
                         {item.rating.replace("/", "").replace(".svg", "")}/
                         <span className="text-[#999]">5</span>
@@ -376,7 +386,7 @@ const Casual = ({ casualClothes }) => {
       </div>
 
       <div
-        className={`fixed z-50 top-[100px] left-0 right-0 bottom-0 bg-white rounded-t-2xl p-4 transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed z-50 top-[100px]  left-0 right-0 bottom-0 bg-white rounded-t-2xl p-4 transition-transform duration-300 ease-in-out lg:hidden ${
           showFilters ? "translate-y-0" : "translate-y-full"
         }`}
         style={{ maxHeight: "100vh", overflowY: "auto" }}
@@ -389,13 +399,16 @@ const Casual = ({ casualClothes }) => {
         </div>
 
         {["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"].map((item) => (
-          <div key={item} className="flex justify-between items-center py-1">
+          <div
+            key={item}
+            className="flex justify-between items-center py-1 font-[satoshi]"
+          >
             <h4>{item}</h4>
             <img src="/smallarrow.svg" alt=">" />
           </div>
         ))}
 
-        <div className="my-5">
+        <div className="my-5 font-[satoshi]">
           <div className="flex justify-between items-center">
             <h3 className="mb-2 font-medium text-md">Price</h3>
             <img src="/arrowU.svg" alt="arrow" className="w-4 h-4" />
@@ -444,7 +457,7 @@ const Casual = ({ casualClothes }) => {
           </div>
         </div>
 
-        <div className="mb-5">
+        <div className="mb-5 font-[satoshi]">
           <div className="flex">
             <h3 className="mb-2 font-medium text-md">Colors</h3>
           </div>
@@ -469,7 +482,7 @@ const Casual = ({ casualClothes }) => {
           </div>
         </div>
 
-        <div className="mb-5">
+        <div className="mb-5 font-[satoshi]">
           <div className="flex justify-between items-center">
             <h3 className="mb-2 font-medium text-md">Size</h3>
             <img src="/arrowU.svg" alt="arrow" className="w-4 h-4" />
@@ -493,10 +506,12 @@ const Casual = ({ casualClothes }) => {
           </div>
         </div>
 
-        <button className="bg-black hover:bg-gray-800 mt-6 py-3 rounded-[62px] w-full font-medium text-white text-sm transition-colors">
+        <button className="bg-black hover:bg-gray-800 mt-6 py-3 rounded-[62px] w-full font-[satoshi] font-medium text-white text-sm transition-colors">
           Apply Filter
         </button>
       </div>
+      <StayUpDated />
+      <Footer />
     </div>
   );
 };
