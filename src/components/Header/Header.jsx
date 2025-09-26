@@ -81,7 +81,7 @@ const Header = () => {
                 {desktopSubmenuOpen && (
                   <ul className="top-full left-0 z-10 absolute space-y-2 bg-white shadow-md mt-2 px-4 py-2 rounded-md w-[180px] font-[satoshi]">
                     <li>
-                      <Link to="/product" className="block hover:underline">
+                      <Link to="/ProductList" className="block hover:underline">
                         All Products
                       </Link>
                     </li>
