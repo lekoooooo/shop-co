@@ -1,56 +1,70 @@
-import React from "react";
+// import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const NewArrivals = () => {
+const NewArrivals = ({ products }) => {
+  if (!products || products.length === 0) return null;
+
   return (
-    <div className="mx-auto px-4 max-w-[390px]">
-      <h2 className="mb-6 font-bold text-[32px] text-center">NEW ARRIVALS</h2>
-
-      <div className="flex gap-4">
-        <div className="flex-1">
-          <div className="bg-[#f2f0f1] mb-2 w-full h-[198px]">
-            <img
-              src="./blacktee.png"
-              alt="Black T-shirt"
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <h4 className="mb-1 w-[190px] font-medium text-[14px]">
-            T-SHIRT WITH TAPE DETAILS
-          </h4>
-          <div className="flex items-center gap-1 mb-1">
-            <img src="./4.5.svg" alt="Rating" className="h-4" />
-            <span className="text-[12px]">4.5/5</span>
-          </div>
-          <p className="font-bold text-[20px]">$120</p>
-        </div>
-
-        <div className="flex-1">
-          <div className="bg-[#f2f0f1] mb-2 w-full h-[198px]">
-            <img
-              src="./skinnyjeans.svg"
-              alt="Skinny Jeans"
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <h4 className="mb-1 font-medium text-[14px]">Skinny Fit Jeans</h4>
-          <div className="flex items-center gap-1 mb-1">
-            <img src="./3.5.svg" alt="Rating" className="h-4" />
-            <span className="text-[12px]">3.5/5</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <p className="font-bold text-[20px]">$240</p>
-            <span className="text-[20px] text-gray-400 line-through">$260</span>
-            <div className="bg-red-100 px-2 py-0.5 rounded-full font-medium text-[12px] text-red-500">
-              -20%
+    <section className="mx-auto px-4 py-8 max-w-6xl">
+      <h2 className="lg:flex lg:justify-center mb-4 font-[fontspring] lg:text-[48px]">
+        New Arrivals
+      </h2>
+      <div className="flex gap-4 lg:grid lg:grid-cols-4 overflow-x-auto font-[satoshi]">
+        {products.map((product) => (
+          <Link
+            key={product.id}
+            to={`/product/${product.id}`}
+            className="flex-shrink-0 w-[170px] lg:w-auto"
+          >
+            <div className="bg-[#f2f0f1] mb-2 rounded-[20px] w-full lg:max-w-[295px] lg:h-[320px] min-h-[298px]">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-full h-full object-contain"
+              />
             </div>
-          </div>
+            <h4 className="mb-1 font-medium text-[14px] lg:text-[16px]">
+              {product.title}
+            </h4>
+            <div className="flex items-center gap-1 mb-1">
+              <img
+                src={`/${product.rating}.svg`}
+                alt="Rating"
+                className="h-4"
+              />
+              <span className="text-[12px] lg:text-[14px]">
+                {product.rating}/<span className="text-[#00000099]">5</span>
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <p className="font-bold text-[20px] lg:text-[22px]">
+                {product.price}
+              </p>
+              {product.originalPrice && (
+                <>
+                  <span className="text-[20px] text-gray-400 line-through">
+                    {product.originalPrice}
+                  </span>
+                  <div className="bg-red-100 px-2 py-0.5 rounded-full font-medium text-[12px] text-red-500">
+                    {product.discount}
+                  </div>
+                </>
+              )}
+            </div>
+          </Link>
+        ))}
+      </div>
+      {products.length > 4 && (
+        <div className="mt-6 lg:mt-10 text-center">
+          <Link to="/casual">
+            <button className="hidden lg:flex lg:m-auto lg:px-6 lg:py-2 lg:border lg:border-black lg:rounded-full font-[satoshi] font-medium text-[14px] lg:text-[16px] underline lg:no-underline cursor-pointer">
+              {" "}
+              View All
+            </button>
+          </Link>
         </div>
-      </div>
-
-      <div className="mt-6 text-center">
-        <button className="font-medium text-[14px] underline">View All</button>
-      </div>
-    </div>
+      )}
+    </section>
   );
 };
 

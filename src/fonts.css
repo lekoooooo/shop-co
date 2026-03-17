@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Fontspring";
+  src: url("/fonts/Fontspring.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "satoshi";
+  src: url("/fonts/Satoshi.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

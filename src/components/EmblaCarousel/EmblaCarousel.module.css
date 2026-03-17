@@ -1,0 +1,47 @@
+.emblaWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.emblaCarousel {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.emblaButtonLeft,
+.emblaButtonRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.emblaViewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.emblaContainer {
+  display: flex;
+  width: 100%;
+}
+
+.emblaSlide {
+  flex: 0 0 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
